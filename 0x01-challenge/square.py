@@ -4,36 +4,13 @@
 
 class Square():
     """Square module documentation"""
-    def __init__(self, width=0, height=0):
+    width = 0
+    height = 0
+
+    def __init__(self, *args, **kwargs):
         """Initialization"""
-        self.width = width
-        self.height = height
-
-    @property
-    def width(self):
-        """width"""
-        return self.__width
-
-    @property
-    def height(self):
-        """height"""
-        return self.height
-
-    @width.setter
-    def width(self, value):
-        """width setter"""
-        if value < 1:
-            raise ValueError('Width must be greater than 0')
-        else:
-            self.__width = value
-
-    @height.setter
-    def height(self, value):
-        """height setter"""
-        if value < 1:
-            raise ValueError('Height must be greater than 0')
-        else:
-            self.__height = value
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def area_of_my_square(self):
         """ Area of the square """
